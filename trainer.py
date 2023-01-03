@@ -1,4 +1,6 @@
 # python trainer.py --model_path=/tmp/model --config config/test.yaml
+import os
+os.environ['LD_LIBRARY_PATH'] = '/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH'
 
 import torch
 import pytorch_lightning as pl
