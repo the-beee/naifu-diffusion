@@ -10,16 +10,16 @@ def sizeof_fmt(num, suffix="B"):
     return f"{num:.1f}Yi{suffix}"
 
 def get_world_size(config) -> int:
-    if config.lightning.accelerator == "tpu":
-        import torch_xla.core.xla_model as xm
-        return xm.xrt_world_size()
+    # if config.lightning.accelerator == "tpu":
+    #     import torch_xla.core.xla_model as xm
+    #     return xm.xrt_world_size()
     
     return int(os.environ.get("WORLD_SIZE", 1))
 
 def get_local_rank(config) -> int:
-    if config.lightning.accelerator == "tpu":
-        import torch_xla.core.xla_model as xm
-        return xm.get_ordinal()
+    # if config.lightning.accelerator == "tpu":
+    #     import torch_xla.core.xla_model as xm
+    #     return xm.get_ordinal()
     
     return int(os.environ.get("LOCAL_RANK", -1))
     

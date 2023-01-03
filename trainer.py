@@ -26,7 +26,7 @@ def main(args):
     
     strategy = None
     tune = config.lightning.auto_scale_batch_size or config.lightning.auto_lr_find
-    if config.lightning.accelerator in ["gpu", "cpu"] and not tune:
+    if not tune:
         strategy = "ddp_find_unused_parameters_false"
         config.lightning.replace_sampler_ddp = False
         
@@ -85,6 +85,7 @@ def main(args):
         logger=logger, 
         strategy=strategy, 
         callbacks=callbacks,
+        accelerator='gpu' if torch.cuda.is_available() else 'cpu',
         **config.lightning
     )
     
