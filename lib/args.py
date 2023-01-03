@@ -9,13 +9,13 @@ def parse_args():
     parser.add_argument(
         "--model_path",
         type=str,
-        default=None,
+        default='/tmp/model',
         help="Path to pretrained model or model identifier from huggingface.co/models.",
     )
     parser.add_argument(
         "--config", 
         type=str, 
-        default=None
+        default='config/test.yaml'
     )
     parser.add_argument(
         "--local_rank",
