@@ -31,15 +31,15 @@ checkpoint:
 hivemind:
   target_batch_size: 1000
   verbose: true
-  # initial_peers: ['/ip4/159.223.171.199/tcp/41555/p2p/QmVQks3jCMEyakLtayUxtFXohpunqiMdWuAWpXYo26vrdV']
+  initial_peers: ['/ip4/65.109.181.167/udp/59081/quic/p2p/12D3KooWB3Cwfu9hBHDVSxdFY3JjHApCt4jCQaPZswQd33QeK6uC', '/ip4/65.109.181.167/tcp/41235/p2p/12D3KooWB3Cwfu9hBHDVSxdFY3JjHApCt4jCQaPZswQd33QeK6uC']
   run_id: "test-run-1112b"
   host_maddrs: ["/ip4/0.0.0.0/tcp/0", "/ip4/0.0.0.0/udp/0/quic"]
-  reuse_grad_buffers: true
-  offload_optimizer: false
-  matchmaking_time: 260.0
-  averaging_timeout: 1200.0
-  allreduce_timeout: 1200.0
-  load_state_timeout: 1200.0
+#  reuse_grad_buffers: true
+#  offload_optimizer: false
+#  matchmaking_time: 260.0
+#  averaging_timeout: 1200.0
+#  allreduce_timeout: 1200.0
+#  load_state_timeout: 1200.0
 
 lightning:
   # limit_train_batches: 100
