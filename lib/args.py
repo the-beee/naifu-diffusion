@@ -15,7 +15,7 @@ def parse_args():
     parser.add_argument(
         "--config", 
         type=str, 
-        default='config/test.yaml'
+        default='config/distributed.yaml'
     )
     parser.add_argument(
         "--local_rank",
