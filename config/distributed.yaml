@@ -6,7 +6,7 @@ trainer:
   init_batch_size: 1
   resolution: 512
   center_crop: false
-  gradient_checkpointing: true
+  gradient_checkpointing: false
   clip_skip: 2
   seed: 1138
   precision: fp16
@@ -24,14 +24,14 @@ checkpoint:
   filename: 'sample-nd-epoch{epoch:02d}-loss{train_loss:.2f}'
   auto_insert_metric_name: false
   every_n_epochs: 0
-  save_top_k: 2
+  save_top_k: 0
   mode: 'max'
   save_last: true
 
 hivemind:
-  target_batch_size: 1000
+  target_batch_size: 100
   verbose: true
-  initial_peers: ['/ip4/65.109.181.167/udp/59081/quic/p2p/12D3KooWB3Cwfu9hBHDVSxdFY3JjHApCt4jCQaPZswQd33QeK6uC', '/ip4/65.109.181.167/tcp/41235/p2p/12D3KooWB3Cwfu9hBHDVSxdFY3JjHApCt4jCQaPZswQd33QeK6uC']
+  #initial_peers: ['/ip4/65.109.181.167/udp/59081/quic/p2p/12D3KooWB3Cwfu9hBHDVSxdFY3JjHApCt4jCQaPZswQd33QeK6uC', '/ip4/65.109.181.167/tcp/41235/p2p/12D3KooWB3Cwfu9hBHDVSxdFY3JjHApCt4jCQaPZswQd33QeK6uC']
   run_id: "test-run-1112b"
   host_maddrs: ["/ip4/0.0.0.0/tcp/0", "/ip4/0.0.0.0/udp/0/quic"]
   reuse_grad_buffers: true
@@ -40,6 +40,7 @@ hivemind:
   averaging_timeout: 1200.0
   allreduce_timeout: 1200.0
   load_state_timeout: 1200.0
+
 
 lightning:
   # limit_train_batches: 100
@@ -54,22 +55,22 @@ lightning:
 arb:
   enabled: true
   debug: false
-  base_res: [512, 512]
-  max_size: [768, 512]
+  base_res: [ 512, 512 ]
+  max_size: [ 768, 512 ]
   divisible: 64
   max_ar_error: 4
   min_dim: 256
   dim_limit: 1024
 
 dataset:
-  img_path: 
+  img_path:
     - "https://pub-2fdef7a2969f43289c42ac5ae3412fd4.r2.dev/mmk.tgz"
   center_crop: false
   ucg: 0.0
   debug_arb: false
   num_workers: 3
   process_tags: true
-  important_tags: []
+  important_tags: [ ]
   augment:
     enabled: false
     debug: false
@@ -88,7 +89,7 @@ optimizer:
 
 lr_scheduler:
   name: torch.optim.lr_scheduler.CosineAnnealingLR
-  warmup: 
+  warmup:
     enabled: false
     init_lr: 2e-8
     num_warmup: 50
@@ -115,14 +116,14 @@ sampling:
   width: 512
   steps: 20
   cfg_scale: 9
-  negative_prompts: 
+  negative_prompts:
     - "lowres, bad anatomy, text, error, extra digit, cropped"
     - "lowres, low quality"
-  prompts: 
+  prompts:
     - "a girl running fast on the country lane"
     - "a girl in black serafuku standing in a field. Tags: solo, food, fruit, lemon, masterpiece"
 
 encoder:
   # Leave blank to load from model
-  text: 
+  text:
   vae: 
