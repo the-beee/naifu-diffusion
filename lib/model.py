@@ -52,8 +52,8 @@ class StableDiffusionModel(pl.LightningModule):
          
         self.unet.to(torch.bfloat16 if config.trainer.precision == "fp16" else torch.float32)
         if config.trainer.half_encoder:
-            self.vae.to(torch.float16)
-            self.text_encoder.to(torch.float16)
+            self.vae.to(torch.bfloat16)
+            self.text_encoder.to(torch.bfloat16)
 
         self.vae.requires_grad_(False)
         self.text_encoder.requires_grad_(False)
