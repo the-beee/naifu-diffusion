@@ -9,7 +9,7 @@ def parse_args():
     parser.add_argument(
         "--model_path",
         type=str,
-        default='/tmp/model',
+        default='CompVis/stable-diffusion-v1-1',
         help="Path to pretrained model or model identifier from huggingface.co/models.",
     )
     parser.add_argument(
