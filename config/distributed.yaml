@@ -9,8 +9,8 @@ trainer:
   gradient_checkpointing: false
   clip_skip: 2
   seed: 1138
-  precision: fp32
-  half_encoder: false
+  precision: fp16
+  half_encoder: true
   use_ema: false
   use_hivemind: true
   use_xformers: false
@@ -31,7 +31,7 @@ checkpoint:
 hivemind:
   target_batch_size: 100
   verbose: true
-  #initial_peers: ['/ip4/65.109.181.167/udp/59081/quic/p2p/12D3KooWB3Cwfu9hBHDVSxdFY3JjHApCt4jCQaPZswQd33QeK6uC', '/ip4/65.109.181.167/tcp/41235/p2p/12D3KooWB3Cwfu9hBHDVSxdFY3JjHApCt4jCQaPZswQd33QeK6uC']
+#  initial_peers: ['/ip4/5.161.73.233/tcp/43321/p2p/12D3KooWRe1ARD9rL1h8RGwLxUgFviWFyG2j9nmgfPCwvbLEB77X','/ip4/5.161.73.233/udp/49776/quic/p2p/12D3KooWRe1ARD9rL1h8RGwLxUgFviWFyG2j9nmgfPCwvbLEB77X']
   run_id: "test-run-1112b"
   host_maddrs: ["/ip4/0.0.0.0/tcp/0", "/ip4/0.0.0.0/udp/0/quic"]
   reuse_grad_buffers: true
